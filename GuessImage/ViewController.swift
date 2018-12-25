@@ -57,6 +57,7 @@ class ViewController: UIViewController {
     
     var imageViews: [AnswerView] = []
     var imagePaths: [String] = []
+    var rightAnswersImagePaths: [String] = []
     let labelHeight: CGFloat = 100
     var labelView: UILabel = UILabel()
     var correctAnswer: String? = nil
@@ -65,13 +66,13 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         view.isMultipleTouchEnabled = true
+        self.view.backgroundColor = .black
 
         DispatchQueue.main.async {
             if let urls = Bundle.main.urls(forResourcesWithExtension: "jpg", subdirectory: "images") {
                 self.imagePaths = urls.map { $0.path }
             }
 
-            self.view.backgroundColor = .black
             self.labelView.frame = CGRect(
                 x: 0,
                 y: self.view.frame.size.height - self.labelHeight,
@@ -111,19 +112,29 @@ class ViewController: UIViewController {
             )
         }
         
-        imagePaths.shuffle()
+        if rightAnswersImagePaths.isEmpty {
+            rightAnswersImagePaths = imagePaths.shuffled()
+        }
         
+        let correctAnswerPath = rightAnswersImagePaths.popLast()!
+        let wrongAnswersPath = (imagePaths.shuffled().filter {$0 != correctAnswerPath})[..<(rows * columns - 1)]
+        
+        let alternativesToShowPaths = ([correctAnswerPath] + wrongAnswersPath).shuffled()
+        assert(alternativesToShowPaths.count == imageViews.count)
+
         nowShowing = []
-        for (path, imageView) in zip(imagePaths, imageViews) {
+        for (path, imageView) in zip(alternativesToShowPaths, imageViews) {
             DispatchQueue.main.async {
                 imageView.image = UIImage(contentsOfFile: path)
             }
             let answer = String(path.split(separator: "/").last!.split(separator:".").first!)
+            if path == correctAnswerPath {
+                correctAnswer = answer;
+            }
             imageView.answer = answer
             nowShowing.append(answer)
         }
         
-        correctAnswer = nowShowing.shuffled()[0]
         labelView.text = correctAnswer?.uppercased()
     }
     
