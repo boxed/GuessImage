@@ -99,6 +99,7 @@
 				TargetAttributes = {
 					AEE3D23C20C105C0004101E3 = {
 						CreatedOnToolsVersion = 9.4;
+						LastSwiftMigration = 1010;
 					};
 				};
 			};
@@ -294,7 +295,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = net.kodare.GuessImage;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = 2;
 			};
 			name = Debug;
@@ -313,7 +314,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = net.kodare.GuessImage;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = 2;
 			};
 			name = Release;
