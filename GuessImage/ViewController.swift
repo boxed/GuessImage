@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import AVFoundation
 
 extension MutableCollection {
     /// Shuffles the contents of this collection.
@@ -53,6 +54,13 @@ class NewGameView: UIImageView {
     }
 }
 
+func paths(forResourcesWithExtension : String, subdirectory : String) -> [String] {
+    if let urls = Bundle.main.urls(forResourcesWithExtension: "jpg", subdirectory: "images") {
+        return urls.map { $0.path }
+    }
+    assert(false)
+}
+
 class ViewController: UIViewController {
     
     var imageViews: [AnswerView] = []
@@ -62,15 +70,24 @@ class ViewController: UIViewController {
     var labelView: UILabel = UILabel()
     var correctAnswer: String? = nil
     var nowShowing: [String] = []
+
+    var correctAnswerSounds: [URL] = []
+    var wrongAnswerSounds: [URL] = []
     
+    var audioPlayer: AVAudioPlayer? = nil;
+
     override func viewDidLoad() {
         super.viewDidLoad()
         view.isMultipleTouchEnabled = true
         self.view.backgroundColor = .black
 
         DispatchQueue.main.async {
-            if let urls = Bundle.main.urls(forResourcesWithExtension: "jpg", subdirectory: "images") {
-                self.imagePaths = urls.map { $0.path }
+            self.imagePaths = paths(forResourcesWithExtension: "jpg", subdirectory: "images")
+            if let urls = Bundle.main.urls(forResourcesWithExtension: "m4a", subdirectory: "correct_sounds") {
+                self.correctAnswerSounds = urls
+            }
+            if let urls = Bundle.main.urls(forResourcesWithExtension: "m4a", subdirectory: "wrong_sounds") {
+                self.wrongAnswerSounds = urls
             }
 
             self.labelView.frame = CGRect(
@@ -164,10 +181,24 @@ class ViewController: UIViewController {
             newGameView.isUserInteractionEnabled = true
             removeSubviews()
             view.addSubview(newGameView)
+        
+            do {
+                self.audioPlayer = try AVAudioPlayer(contentsOf: self.correctAnswerSounds.randomElement()!)
+                self.audioPlayer!.play()
+            }
+            catch {
+            }
+
         }
         else {
             tappedView.image = nil
             tappedView.backgroundColor = .red
+            do {
+                self.audioPlayer = try AVAudioPlayer(contentsOf: self.wrongAnswerSounds.randomElement()!)
+                self.audioPlayer!.play()
+            }
+            catch {
+            }
         }
     }
     

@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		AE34A08D21D3D60B00FD993A /* wrong_sounds in Resources */ = {isa = PBXBuildFile; fileRef = AE34A08C21D3D60B00FD993A /* wrong_sounds */; };
+		AE34A08F21D3D61200FD993A /* correct_sounds in Resources */ = {isa = PBXBuildFile; fileRef = AE34A08E21D3D61200FD993A /* correct_sounds */; };
 		AEE3D24120C105C0004101E3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEE3D24020C105C0004101E3 /* AppDelegate.swift */; };
 		AEE3D24320C105C0004101E3 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEE3D24220C105C0004101E3 /* ViewController.swift */; };
 		AEE3D24620C105C0004101E3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AEE3D24420C105C0004101E3 /* Main.storyboard */; };
@@ -16,6 +18,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		AE34A08C21D3D60B00FD993A /* wrong_sounds */ = {isa = PBXFileReference; lastKnownFileType = folder; path = wrong_sounds; sourceTree = "<group>"; };
+		AE34A08E21D3D61200FD993A /* correct_sounds */ = {isa = PBXFileReference; lastKnownFileType = folder; path = correct_sounds; sourceTree = "<group>"; };
 		AEE3D23D20C105C0004101E3 /* GuessImage.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GuessImage.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AEE3D24020C105C0004101E3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		AEE3D24220C105C0004101E3 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -62,6 +66,8 @@
 				AEE3D24720C105C3004101E3 /* Assets.xcassets */,
 				AEE3D24920C105C3004101E3 /* LaunchScreen.storyboard */,
 				AEE3D24C20C105C3004101E3 /* Info.plist */,
+				AE34A08E21D3D61200FD993A /* correct_sounds */,
+				AE34A08C21D3D60B00FD993A /* wrong_sounds */,
 				AEE3D25220C109A9004101E3 /* images */,
 			);
 			path = GuessImage;
@@ -127,9 +133,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				AEE3D25320C109A9004101E3 /* images in Resources */,
+				AE34A08F21D3D61200FD993A /* correct_sounds in Resources */,
 				AEE3D24B20C105C3004101E3 /* LaunchScreen.storyboard in Resources */,
 				AEE3D24820C105C3004101E3 /* Assets.xcassets in Resources */,
 				AEE3D24620C105C0004101E3 /* Main.storyboard in Resources */,
+				AE34A08D21D3D60B00FD993A /* wrong_sounds in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
