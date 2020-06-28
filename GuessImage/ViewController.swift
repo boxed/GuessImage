@@ -70,6 +70,7 @@ class ViewController: UIViewController {
     var labelView: UILabel = UILabel()
     var correctAnswer: String? = nil
     var nowShowing: [String] = []
+    var upperCase = true
 
     var correctAnswerSounds: [URL] = []
     var wrongAnswerSounds: [URL] = []
@@ -102,6 +103,14 @@ class ViewController: UIViewController {
             
             self.newGame()
         }
+        labelView.isUserInteractionEnabled = true
+        labelView.addGestureRecognizer(UITapGestureRecognizer.init(target: self, action: #selector(changeCase)))
+    }
+    
+    @objc
+    func changeCase() {
+        upperCase = !upperCase
+        setLabel()
     }
     
     func removeSubviews() {
@@ -151,8 +160,16 @@ class ViewController: UIViewController {
             imageView.answer = answer
             nowShowing.append(answer)
         }
-        
-        labelView.text = correctAnswer?.uppercased()
+        setLabel()
+    }
+    
+    func setLabel() {
+        if upperCase {
+            labelView.text = correctAnswer?.uppercased()
+        }
+        else {
+            labelView.text = correctAnswer?.lowercased()
+        }
     }
     
     func translateViewToAnswer(_ view: UIView) -> String {
