@@ -107,6 +107,16 @@ class ViewController: UIViewController {
         labelView.addGestureRecognizer(UITapGestureRecognizer.init(target: self, action: #selector(changeCase)))
     }
     
+    override func viewWillLayoutSubviews() {
+        super.viewWillLayoutSubviews()
+
+        self.labelView.frame = CGRect(
+            x: 0,
+            y: self.view.frame.size.height - self.labelHeight,
+            width: self.view.frame.size.width,
+            height: self.labelHeight)
+    }
+    
     @objc
     func changeCase() {
         upperCase = !upperCase
@@ -164,11 +174,12 @@ class ViewController: UIViewController {
     }
     
     func setLabel() {
+        let t = Bundle.main.localizedString(forKey: correctAnswer ?? "", value: nil, table: nil)
         if upperCase {
-            labelView.text = correctAnswer?.uppercased()
+            labelView.text = t.uppercased()
         }
         else {
-            labelView.text = correctAnswer?.lowercased()
+            labelView.text = t.lowercased()
         }
     }
     
