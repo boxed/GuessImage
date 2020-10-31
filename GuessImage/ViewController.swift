@@ -59,6 +59,7 @@ func paths(forResourcesWithExtension : String, subdirectory : String) -> [String
         return urls.map { $0.path }
     }
     assert(false)
+    return []
 }
 
 class ViewController: UIViewController {
@@ -190,6 +191,7 @@ class ViewController: UIViewController {
             }
         }
         assert(false)
+        return ""
     }
     
     func tapNewGame() {

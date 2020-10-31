@@ -116,7 +116,7 @@
 					};
 				};
 			};
-			buildConfigurationList = AEE3D23820C105C0004101E3 /* Build configuration list for PBXProject "GuessImage" */;
+			buildConfigurationList = AEE3D23820C105C0004101E3 /* Build configuration list for PBXProject "Verbis Novis" */;
 			compatibilityVersion = "Xcode 9.3";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -323,7 +323,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = net.kodare.GuessImage;
+				PRODUCT_BUNDLE_IDENTIFIER = net.kodare.VerbisNovis;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTS_MACCATALYST = YES;
 				SWIFT_VERSION = 4.2;
@@ -344,7 +344,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = net.kodare.GuessImage;
+				PRODUCT_BUNDLE_IDENTIFIER = net.kodare.VerbisNovis;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTS_MACCATALYST = YES;
 				SWIFT_VERSION = 4.2;
@@ -355,7 +355,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		AEE3D23820C105C0004101E3 /* Build configuration list for PBXProject "GuessImage" */ = {
+		AEE3D23820C105C0004101E3 /* Build configuration list for PBXProject "Verbis Novis" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				AEE3D24D20C105C3004101E3 /* Debug */,

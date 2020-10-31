@@ -2,6 +2,6 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "self:GuessImage.xcodeproj">
+      location = "self:/Users/boxed/Projects/GuessImage/Verbis Novis.xcodeproj">
    </FileRef>
 </Workspace>
